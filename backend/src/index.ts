@@ -7,7 +7,7 @@ import dotenv  from 'dotenv';
 dotenv.config();
 
 const app = express();
-const port =  process.env.PORT || 4000;
+const port =  process.env.PORT! || 4000;
 
 //disable x-power 
 app.disable('x-powered-by');
