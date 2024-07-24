@@ -6,7 +6,9 @@
   "scripts": {
     "build": "tsc",
     "start": "npm run build && node backend/dist/src/index.js",
-    "dev": "nodemon --watch backend/src --exec ts-node backend/src/index.ts",
+    "dev:backend": "nodemon --watch backend/src --exec ts-node backend/src/index.ts",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -16,6 +18,7 @@
     "@prisma/client": "^5.17.0",
     "@types/dotenv": "^8.2.0",
     "bcryptjs": "^2.4.3",
+    "concurrently": "^8.2.2",
     "cookie-parser": "^1.4.6",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",

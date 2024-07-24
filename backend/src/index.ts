@@ -16,6 +16,11 @@ app.use(express.json());  // for parsing application/json
 app.use(express.urlencoded({ extended:true , limit: "50MB"})); 
 app.use(cookieParser()) // for parsing cookies
 
+app.get('/',(req:express.Request,res:express.Response) => {
+    return res.status(200).json({
+        message: 'Welcome to the PERN Chat App'
+    })
+})
 app.use('/api/auth', authRoutes)
 app.use('/api/messages', messageRoutes)
 
