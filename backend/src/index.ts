@@ -22,3 +22,7 @@ app.use('/api/messages', messageRoutes)
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
+
+
+// Todo: Add socket.io to the server
+// Todo: Configure this serveer for the deployment

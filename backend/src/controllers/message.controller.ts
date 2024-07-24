@@ -73,8 +73,29 @@ export const getMessage  = async( req:Request, res:Response) => {
             return res.status(200).json([])
         }
         res.status(200).json(conversation.messages);
-        
+
     } catch (error:any) {
+        console.error(`Error in signup controller ${error.message}`);
+        return res.status(500).json({ error: 'Internal server error' });
+    }
+}
+
+export const getUsersForSidebar  = async( req:Request, res:Response ) => {
+    try {
+        const authUserId = req.user.id;
+        const users = await prisma.user.findMany({
+            where:{
+                id: { notIn:[authUserId] }
+            },
+            select:{
+                id:true,
+                fullName:true,
+                profilePic:true
+            }
+        });
+        res.status(200).json(users)
+        
+    } catch (error :any) {
         console.error(`Error in signup controller ${error.message}`);
         return res.status(500).json({ error: 'Internal server error' });
     }
