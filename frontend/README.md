@@ -39,3 +39,24 @@ export default {
   npm i --save-dev @types/express
   npm i --save-dev
  -->
+
+ <!-- 
+   ขันตอนการใช้ react ที่สร้างจาก vite
+   1 ติดตั้ง tailwindcss vite สำหรับ ทำ ui
+      npm install -D tailwindcss postcss autoprefixer
+      npx tailwindcss init -p
+      ไปตั้งค่าที่ tailwind.config.js เพิ่ม
+      content: [
+        "./index.html",
+        "./src/**/*.{js,ts,jsx,tsx}",
+      ],
+      จากนั้นไปที่ไฟล์ index.css เพิ่ม 
+      @tailwind base;
+      @tailwind components;
+      @tailwind utilities;
+   2 ติดตั้ง react react-dom
+   3 ติดตั้ง react-router-dom
+   4 ติดตั้ง react-hook-form
+
+ 
+  -->
